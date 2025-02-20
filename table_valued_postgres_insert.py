@@ -1,5 +1,6 @@
 import pandas as pd
 import sqlalchemy as sa
+import secrets
 
 import contextlib
 
@@ -59,6 +60,9 @@ def get_primary_keys (database:str, schema:str, table:str) -> list:
     return pk_results
 
 def login_postgres():
+    uname = secrets.username
+    pw = secrets.password
+    ip = secrets.ip
     engine = sa.create_engine('postgresql://postgres:BestPasswordEver@34.56.191.19:5432/postgres')
     return engine
 
